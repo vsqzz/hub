@@ -2983,52 +2983,6 @@ function Library:CreateWindow(setup)
 		Button.TextSize = 14.000
 		Button.TextTransparency = 1.000
 
-		-- Add a default font property to the Library
-Library.Font = Enum.Font.SourceSans -- Default font
-
-function Library:SetFont(newFont)
-    Library.Font = newFont
-    -- Update all UI elements that use this font
-    -- You may need to implement a way to access all text elements to update them
-end
-
--- When creating UI elements, use the Library.Font property
-function Library:CreateWindow(setup)
-    -- ... existing code ...
-
-    Title.Font = Library.Font
-    -- ... other UI elements ...
-
-    -- Example for TextLabel in AddButton
-    TextLabel.Font = Library.Font
-    -- Repeat for other text elements throughout your library
-end
-
--- Example for AddParagraph method
-function Root:AddParagraph(Setup)
-    Setup = Setup or {};
-    
-    local ParagraphBlock = Instance.new("Frame")
-    local TextLabel = Instance.new("TextLabel")
-
-    TextLabel.Parent = ParagraphBlock
-    TextLabel.Font = Library.Font  -- Set the font here
-    TextLabel.Text = Setup.Title or ""
-
-    -- ... rest of your code for AddParagraph ...
-end
-
--- Example for AddTextbox method
-function Root:AddTextbox(setup)
-    -- ... existing code ...
-
-    TextBox.Font = Library.Font  -- Set the font here
-
-    -- ... rest of your code for AddTextbox ...
-end
-
--- Update other methods similarly to ensure they utilize Library.Font
-
 		local Root = {};
 		local TabCenterFrame = Instance.new("Frame")
 		local ScrollingFrame = Instance.new("ScrollingFrame")
